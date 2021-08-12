@@ -17,7 +17,7 @@ void main() async {
         create: (_) => PacientService(),
       ),
     ],
-    child: MaterialApp(
+    child: const MaterialApp(
       home: FirstRoute(),
     ),
   ));
@@ -91,7 +91,7 @@ class _FirstRouteState extends State<FirstRoute> {
                   ),
                 ),
 
-                Divider(
+                const Divider(
                   thickness: 5,
                   indent: 10,
                   endIndent: 10,
@@ -101,9 +101,9 @@ class _FirstRouteState extends State<FirstRoute> {
 
                 Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Text(
                           "Dades del Pacient: ",
                           style: TextStyle(
@@ -123,14 +123,13 @@ class _FirstRouteState extends State<FirstRoute> {
 
 
                             },
-                            child:Text("Editar",
+                            child:const Text("Editar",
                               style: TextStyle(
                                 fontSize: 20,
                               ),)
                         ),
                       ),
                     ),
-
 
                   ],
                 ),
@@ -155,7 +154,7 @@ class _FirstRouteState extends State<FirstRoute> {
                   ),
                 ),
 
-                Divider(
+                const Divider(
                   thickness: 5,
                   indent: 10,
                   endIndent: 10,
@@ -167,7 +166,7 @@ class _FirstRouteState extends State<FirstRoute> {
                     Expanded(
                       child: Container(
                         padding: const EdgeInsets.all(8),
-                        child: Text('Medicaments registrats:',
+                        child: const Text('Medicaments registrats:',
                           style: TextStyle(
                             fontSize:20,
                             color: Colors.black,
@@ -181,9 +180,8 @@ class _FirstRouteState extends State<FirstRoute> {
                       child: ElevatedButton(
                           onPressed: (){
                             //Funció per afegir pastilla
-
                           },
-                          child:Text("Afegir Pastilla",
+                          child:const Text("Afegir Pastilla",
                             style: TextStyle(
                               fontSize: 20.0,
                             ),)
@@ -191,7 +189,7 @@ class _FirstRouteState extends State<FirstRoute> {
                     ),
                   ],
                 ),
-                Divider(
+                const Divider(
                   thickness: 5,
                   indent: 10,
                   endIndent: 10,
@@ -220,7 +218,7 @@ class _FirstRouteState extends State<FirstRoute> {
  }
 
   Widget _EditionButtonBuilder(BuildContext context, int index) {
-    var colorsButton = [Colors.lightBlue[200],Colors.lightBlue[200],Colors.lightBlue[200],Colors.lightBlue[200],Colors.lightBlue[200],Colors.lightBlue[200]];
+    var colorsButton = [Colors.lightBlue[200],Colors.green[700],Colors.yellow[700],Colors.deepOrange[400],Colors.pink[300],Colors.blue[900]];
 
 
 

@@ -1,8 +1,8 @@
 import 'package:app_tr/models/pacient.dart';
-import 'package:app_tr/pages/secondpage2.dart';
 import 'package:flutter/material.dart';
 import 'package:localstorage/localstorage.dart';
 
+enum NombrePastilles { una, dues, tres, quatre }
 
 class SecondRoute extends StatefulWidget {
 
@@ -18,7 +18,7 @@ class _SecondRoute extends State<SecondRoute> {
   String text = "Medicament 1";
 
   final namePillController = TextEditingController();
-
+  NombrePastilles? _character = NombrePastilles.una;
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +33,7 @@ class _SecondRoute extends State<SecondRoute> {
         centerTitle: true,
         backgroundColor: Colors.lightBlue[400],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: ListView(
         children: <Widget> [
           Container(
               padding: const EdgeInsets.fromLTRB(0,0,0,0),
@@ -45,7 +44,7 @@ class _SecondRoute extends State<SecondRoute> {
             child: TextField(
               controller: namePillController,
               onChanged: (String value) async {
-              title = value;
+                title = value;
               },
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
@@ -437,8 +436,98 @@ class _SecondRoute extends State<SecondRoute> {
           Container(
             padding: const EdgeInsets.fromLTRB(0,0,0,10),
             height: 80,
-            child: const MyStatefulWidget(),
-
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 33,
+                  child: Row(
+                    children: <Widget>[
+                      Flexible(
+                        child: ListTile(
+                          title: const Text('1',
+                            style: TextStyle(
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          leading: Radio<NombrePastilles>(
+                            value: NombrePastilles.una,
+                            groupValue: _character,
+                            onChanged: (NombrePastilles? value) {
+                              setState(() {
+                                _character = value;
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child:ListTile(
+                          title: const Text('2',
+                            style: TextStyle(
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          leading: Radio<NombrePastilles>(
+                            value: NombrePastilles.dues,
+                            groupValue: _character,
+                            onChanged: (NombrePastilles? value) {
+                              setState(() {
+                                _character = value;
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 33,
+                  child:Row(
+                    children: <Widget>[
+                      Flexible(
+                        child:ListTile(
+                          dense:true,
+                          title: const Text('3',
+                            style: TextStyle(
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          leading: Radio<NombrePastilles>(
+                            value: NombrePastilles.tres,
+                            groupValue: _character,
+                            onChanged: (NombrePastilles? value) {
+                              setState(() {
+                                _character = value;
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child:ListTile(
+                          dense:true,
+                          title: const Text('4',
+                            style: TextStyle(
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          leading: Radio<NombrePastilles>(
+                            value: NombrePastilles.quatre,
+                            groupValue: _character,
+                            onChanged: (NombrePastilles? value) {
+                              setState(() {
+                                _character = value;
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
           Container(
             padding: const EdgeInsets.fromLTRB(0,0,0,0),
@@ -494,7 +583,7 @@ class _SecondRoute extends State<SecondRoute> {
               },
               style: ElevatedButton.styleFrom(
                 primary: Colors.lightBlue[400],
-                ),
+              ),
               child: const Text('Acceptar'),
             ),
           ),
@@ -503,5 +592,3 @@ class _SecondRoute extends State<SecondRoute> {
     );
   }
 }
-
-
