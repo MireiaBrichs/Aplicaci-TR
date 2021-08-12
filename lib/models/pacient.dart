@@ -4,7 +4,7 @@ class Pacient {
   String? age;
   List<Pill>? pills=[];
 
-  Pacient(this.name, this.age, this.pills);
+  Pacient(this.name, this.age);
 
   toJSONEncodable() {
     Map<String, dynamic> m = new Map();

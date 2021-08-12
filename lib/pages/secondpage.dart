@@ -453,7 +453,7 @@ class _SecondRoute extends State<SecondRoute> {
 
                 var pacient = storage.getItem('pacient');
                 Pacient pacientClean = Pacient(
-                    pacient['name'],pacient['age'],pacient['pills'] as List<Pill>);
+                    pacient['name'],pacient['age']);
 
                 if(pacientClean.pills == null){
                   //Primera pastilla

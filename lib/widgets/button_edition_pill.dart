@@ -11,23 +11,26 @@ class ButtonEditionPill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 80,
-      padding: const EdgeInsets.fromLTRB(0,10,0,0),
-      child: ElevatedButton(
-        child: const Text('Prem per editar',
-          style: TextStyle(
-            fontSize: 20.0,
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(8, 2, 8, 2),
+      child: Container(
+        height: 80,
+        padding: const EdgeInsets.fromLTRB(0,10,0,0),
+        child: ElevatedButton(
+          child: const Text('Prem per editar',
+            style: TextStyle(
+              fontSize: 20.0,
+            ),
           ),
-        ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const SecondRoute()),
-          );
-        },
-        style: ElevatedButton.styleFrom(
-          primary: Colors.lightBlue[400],
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SecondRoute()),
+            );
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Colors.lightBlue[400],
+          ),
         ),
       ),
     );
