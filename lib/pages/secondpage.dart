@@ -36,11 +36,11 @@ class _SecondRoute extends State<SecondRoute> {
       body: ListView(
         children: <Widget> [
           Container(
-              padding: const EdgeInsets.fromLTRB(0,0,0,0),
+              padding: const EdgeInsets.fromLTRB(10,10,10,0),
               child: const Text('Introdueix el nom del medicament:')
           ),
           Container(
-            padding: const EdgeInsets.fromLTRB(0,10,0,0),
+            padding: const EdgeInsets.fromLTRB(10,10,10,0),
             child: TextField(
               controller: namePillController,
               onChanged: (String value) async {
@@ -52,7 +52,7 @@ class _SecondRoute extends State<SecondRoute> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.fromLTRB(0,30,0,0),
+            padding: const EdgeInsets.fromLTRB(10,30,10,0),
             child: const Text('Horari:',
               style: TextStyle(
                 fontSize: 20.0,
@@ -60,365 +60,68 @@ class _SecondRoute extends State<SecondRoute> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.fromLTRB(0,10,0,10),
-            child: const Text('Selecciona totes les hores necessaries:',
+            padding: const EdgeInsets.fromLTRB(10,10,10,0),
+            child: const Text('Selecciona tots els dies necessaris:',
               style: TextStyle(
                 fontSize: 15.0,
               ),
             ),
           ),
           Container(
-            height: 210,
-            child: ListView(
-              children: <Widget>[
-                Row(
-                  children: <Widget> [
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(20,0,0,0),
-                      width: 50,
-                      child: const Text('dll'),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget> [
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(20,0,0,0),
-                      width: 50,
-                      child: const Text('dm'),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget> [
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(20,0,0,0),
-                      width: 50,
-                      child: const Text('dx'),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget> [
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(20,0,0,0),
-                      width: 50,
-                      child: const Text('dj'),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget> [
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(20,0,0,0),
-                      width: 50,
-                      child: const Text('dv'),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget> [
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(20,0,0,0),
-                      width: 50,
-                      child: const Text('ds'),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget> [
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(20,0,0,0),
-                      width: 50,
-                      child: const Text('dg'),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                      child: ElevatedButton(
-                        onPressed: (){},
-                        child: const Text('hora'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue[400],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+            padding: const EdgeInsets.fromLTRB(10,10,10,0),
+            height: 150,
+            child: const CheckboxDies(),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(10,20,10,0),
+            child: const Text('Escriu totes les hores necessaries:',
+              style: TextStyle(
+                fontSize: 15.0,
+              ),
             ),
           ),
           Container(
-            padding: const EdgeInsets.fromLTRB(0,30,0,0),
+            padding: const EdgeInsets.fromLTRB(10,10,10,10),
+            height: 70,
+            child: Row(
+                children: const <Widget> [
+                Expanded(
+                  child:TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  ),
+
+                Expanded(
+                   child:TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                 ),
+
+                Expanded(
+                    child:TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                ),
+
+                Expanded(
+                    child:TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                    ),
+
+                  ),
+              ),
+              ]
+             ),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(10,30,10,0),
             child: const Text('Nombre de pastilles:',
               style: TextStyle(
                 fontSize: 20.0,
@@ -426,7 +129,7 @@ class _SecondRoute extends State<SecondRoute> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.fromLTRB(0,10,0,0),
+            padding: const EdgeInsets.fromLTRB(10,10,10,0),
             child: const Text('Selecciona el nombre de pastilles que han de ser consumides cada cop:',
               style: TextStyle(
                 fontSize: 15.0,
@@ -434,8 +137,7 @@ class _SecondRoute extends State<SecondRoute> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.fromLTRB(0,0,0,10),
-            height: 80,
+            padding: const EdgeInsets.fromLTRB(10,0,10,20),
             child: Column(
               children: <Widget>[
                 Container(
@@ -530,7 +232,7 @@ class _SecondRoute extends State<SecondRoute> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.fromLTRB(0,0,0,0),
+            padding: const EdgeInsets.fromLTRB(10,0,10,0),
             child: ElevatedButton(
               onPressed: () async{
 
@@ -570,16 +272,6 @@ class _SecondRoute extends State<SecondRoute> {
 
 
 
-
-
-
-
-
-
-
-
-
-
               },
               style: ElevatedButton.styleFrom(
                 primary: Colors.lightBlue[400],
@@ -588,6 +280,46 @@ class _SecondRoute extends State<SecondRoute> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CheckboxDies extends StatefulWidget {
+  const CheckboxDies({Key? key}) : super(key: key);
+
+  @override
+  CheckboxDiesState createState() => CheckboxDiesState();
+}
+
+class CheckboxDiesState extends State<CheckboxDies> {
+  Map<String, bool> values = {
+    'dilluns': false,
+    'dimarts': false,
+    'dimecres': false,
+    'dijous': false,
+    'divendres': false,
+    'dissabte': false,
+    'diumenge': false,
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+          body: ListView(
+        children: values.keys.map((String key) {
+          return  CheckboxListTile(
+            title: Text(key),
+            value: values[key],
+            activeColor:Colors.lightBlue[400],
+            checkColor: Colors.white,
+            onChanged: (bool? value) {
+              setState(() {
+                values[key] = value!;
+              });
+            },
+          );
+        }).toList(),
       ),
     );
   }

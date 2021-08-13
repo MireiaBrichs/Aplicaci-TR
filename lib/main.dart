@@ -180,6 +180,11 @@ class _FirstRouteState extends State<FirstRoute> {
                       child: ElevatedButton(
                           onPressed: (){
                             //Funció per afegir pastilla
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const SecondRoute()),
+                            );
+
                           },
                           child:const Text("Afegir Pastilla",
                             style: TextStyle(
