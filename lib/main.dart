@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:app_tr/pages/secondpage.dart';
 import 'package:app_tr/services/pacient_service.dart';
 import 'package:app_tr/widgets/button_edition_pill.dart';
@@ -5,8 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:localstorage/localstorage.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:flutter_blue/flutter_blue.dart';
 import 'models/pacient.dart';
+import 'pages/bluetoothpage.dart';
 
 
 ///MAIN inicial de la aplicació
@@ -81,9 +85,12 @@ class _FirstRouteState extends State<FirstRoute> {
                         fontSize: 25.0,
                       ),
                     ),
-                    onPressed: () {
-                      ///Funció per conectar al bluethoot
-
+                    onPressed: ()  {
+                      //Funció per afegir pastilla
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>  BluetoothRoute()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.blueGrey [700],
