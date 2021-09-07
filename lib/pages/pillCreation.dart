@@ -4,14 +4,14 @@ import 'package:localstorage/localstorage.dart';
 
 enum NombrePastilles { una, dues, tres, quatre }
 
-class SecondRoute extends StatefulWidget {
+class PillCreation extends StatefulWidget {
 
-  const SecondRoute({ Key? key}) : super(key: key);
+  const PillCreation({ Key? key}) : super(key: key);
   @override
-  State<SecondRoute> createState() => _SecondRoute();
+  State<PillCreation> createState() => _SecondRoute();
 }
 
-class _SecondRoute extends State<SecondRoute> {
+class _SecondRoute extends State<PillCreation> {
   // var to store
   // onChanged callback
   late String title;

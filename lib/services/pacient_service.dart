@@ -10,13 +10,15 @@ class PacientService with ChangeNotifier{
   List<String>? pills;
 
 
-  recoverInfoPacient() async{
+ Future<void> recoverInfoPacient() async{
+   print("Recovering Info");
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    var pacientString = prefs.getString("pacient");
-    var pillsString =prefs.getStringList("pills");
+    String? pacientString = prefs.getString("pacient");
+    List<String>? pillsString =prefs.getStringList("pills");
 
     if(pacientString !=null && pillsString!=null){
+      print("Pacient already created, recovering info");
       //Vol dir que ja tenim un pacient i hem de recuperar les dades
 
       //Decodifiquem el pacient per terni-lo com a objecte
@@ -29,11 +31,12 @@ class PacientService with ChangeNotifier{
 
 
     }else{
+      print("Pacient not created, creating new User on our mobile phone...");
       pacient = Pacient("Pacient Nou","17");
 
       prefs.setString("pacient", jsonEncode(
           {
-            "name": "Pacient Nou",
+            "name": "Pacient 2",
             "age": "17",
           }
       ));

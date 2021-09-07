@@ -1,4 +1,4 @@
-import 'package:app_tr/pages/secondpage.dart';
+import 'package:app_tr/pages/pillCreation.dart';
 import 'package:flutter/material.dart';
 
 
@@ -25,7 +25,7 @@ class ButtonEditionPill extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const SecondRoute()),
+              MaterialPageRoute(builder: (context) => const PillCreation()),
             );
           },
           style: ElevatedButton.styleFrom(
