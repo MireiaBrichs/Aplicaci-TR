@@ -32,7 +32,7 @@ class PacientService with ChangeNotifier{
 
     }else{
       print("Pacient not created, creating new User on our mobile phone...");
-      pacient = Pacient("Pacient Nou","17");
+      pacient = Pacient("Pacient 2","17");
 
       prefs.setString("pacient", jsonEncode(
           {
@@ -49,18 +49,30 @@ class PacientService with ChangeNotifier{
 
 
   }
+  editPacient(Pacient pacient){
 
-  afegirMedicament(){
-
-
-  }
-
-  eliminarMedicament(){
 
 
   }
 
-  editarMedicament(){
+  afegirMedicament(Pill pastilleta){
+
+
+
+
+
+
+   notifyListeners();
+
+
+  }
+
+  eliminarMedicament(String nom){
+
+
+  }
+
+  editarMedicament(Pill pastilleta){
 
 
 

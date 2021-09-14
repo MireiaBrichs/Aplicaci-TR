@@ -36,7 +36,7 @@ void main() async {
           'bluethoothConection': (context) => BluetoothRoute(),
           'home':(context)=>FirstRoute(),
           'pillCreation':(context)=>PillCreation(),
-          'pacientEdition':(context)=>PacientEdition(),
+          'pacientEdition':(context)=>PacientEdition()
         }, ),
     ));
 }

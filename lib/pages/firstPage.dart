@@ -55,6 +55,9 @@ class _FirstRouteState extends State<FirstRoute> {
                                     //Funció per afegir pastilla
                                     Navigator.pushNamed(
                                         context, 'bluethoothConection');
+
+
+
                                   },
                                   style: ElevatedButton.styleFrom(
                                     primary: Colors.blueGrey [700],
@@ -155,10 +158,8 @@ class _FirstRouteState extends State<FirstRoute> {
                                     child: ElevatedButton(
                                         onPressed: () {
                                           //Funció per afegir pastilla
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(builder: (
-                                                context) => const PillCreation()),
+                                          Navigator.pushNamed(
+                                            context, 'pillCreation'
                                           );
                                         },
                                         child: const Text("Afegir Pastilla",
@@ -177,7 +178,7 @@ class _FirstRouteState extends State<FirstRoute> {
                               ),
                               Expanded(
                                 child: ListView.builder(
-                                  itemCount: 0, //pacientService.pills!.length,
+                                  itemCount: pacientService.pills!.length,
                                   itemBuilder: _EditionButtonBuilder,
 
                                 ),
@@ -210,7 +211,6 @@ class _FirstRouteState extends State<FirstRoute> {
     PacientService instance = Provider.of<PacientService>(context,
         listen: false);
     await instance.recoverInfoPacient();
-
 
 
     return 0;

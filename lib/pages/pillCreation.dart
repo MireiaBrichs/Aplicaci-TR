@@ -236,34 +236,12 @@ class _SecondRoute extends State<PillCreation> {
             child: ElevatedButton(
               onPressed: () async{
 
-                Pill pastilleta = Pill();
+                //TODO: Arreglar aixo per afegri les coses amb inputs
 
-                pastilleta.name= namePillController.text;
+                Pill pastilleta = Pill(namePillController.text,"2","8","60",DateTime.now());
 
-                pastilleta.number= "quatre";
 
-                var pacient = storage.getItem('pacient');
-                Pacient pacientClean = Pacient(
-                    pacient['name'],pacient['age']);
 
-                if(pacientClean.pills == null){
-                  //Primera pastilla
-
-                  List<Pill> newVec = [];
-                  newVec.add(pastilleta.toJSONEncodable());
-
-                  pacientClean.pills=newVec;
-
-                }else {
-                  if (pacientClean.pills!.length > 6) {
-                    print("No more pastilles");
-                  } else {
-                    pacientClean.pills!.add(pastilleta);
-                  }
-
-                }
-                print(pacientClean.pills![0].toString());
-                storage.setItem('pacient', pacientClean.toJSONEncodable());
 
 
                 Navigator.pop(context);
