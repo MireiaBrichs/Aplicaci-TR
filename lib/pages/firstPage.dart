@@ -77,7 +77,7 @@ class _FirstRouteState extends State<FirstRoute> {
                                 children: [
                                   const Expanded(
                                     child: Padding(
-                                      padding: EdgeInsets.all(8.0),
+                                      padding: const EdgeInsets.fromLTRB(10,10,0,0),
                                       child: Text(
                                         "Dades del Pacient: ",
                                         style: TextStyle(
@@ -90,7 +90,7 @@ class _FirstRouteState extends State<FirstRoute> {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: const EdgeInsets.fromLTRB(5,10,10,0),
                                       child: ElevatedButton(
                                           onPressed: () {
                                             //Funció per editar les dades del pacient
@@ -110,7 +110,7 @@ class _FirstRouteState extends State<FirstRoute> {
 
 
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.fromLTRB(10,10,0,0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment
                                       .spaceEvenly,
@@ -142,7 +142,7 @@ class _FirstRouteState extends State<FirstRoute> {
                                 children: [
                                   Expanded(
                                     child: Container(
-                                      padding: const EdgeInsets.all(8),
+                                      padding: const EdgeInsets.fromLTRB(10,10,0,0),
                                       child: const Text(
                                         'Medicaments registrats:',
                                         style: TextStyle(
@@ -154,7 +154,7 @@ class _FirstRouteState extends State<FirstRoute> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.fromLTRB(5,10,10,0),
                                     child: ElevatedButton(
                                         onPressed: () {
                                           //Funció per afegir pastilla

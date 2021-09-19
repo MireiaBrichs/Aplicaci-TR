@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'dart:async';
-import 'dart:convert';
 import 'package:flutter/services.dart';
 
 
@@ -11,47 +9,48 @@ class BluetoothRoute extends StatefulWidget {
   _BluetoothRouteState createState() => _BluetoothRouteState();
 }
 
-class _BluetoothRouteState  extends State<BluetoothRoute>{
+class _BluetoothRouteState  extends State<BluetoothRoute> {
   BluetoothState _bluetoothState = BluetoothState.UNKNOWN;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  FlutterBluetoothSerial _bluetooth =FlutterBluetoothSerial.instance;
+  FlutterBluetoothSerial _bluetooth = FlutterBluetoothSerial.instance;
   late BluetoothConnection connection;
   late int _deviceState;
   bool isDisconnecting = false;
 
   bool get isConnected => connection.isConnected;
 
-  List<BluetoothDevice> _devicesList =[];
+  List<BluetoothDevice> _devicesList = [];
   var _device;
   bool _connected = false;
   bool _isButtonUnavailable = false;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    _bluetooth.state.then((state){
+    _bluetooth.state.then((state) {
       setState(() {
-        _bluetoothState =state;
+        _bluetoothState = state;
       });
     });
-    _deviceState =0;
+    _deviceState = 0;
 
     enableBluetooth();
     FlutterBluetoothSerial.instance
         .onStateChanged()
-        .listen((BluetoothState state){
+        .listen((BluetoothState state) {
       setState(() {
         _bluetoothState = state;
-        if(_bluetoothState == BluetoothState.STATE_OFF){
-          _isButtonUnavailable =true;
+        if (_bluetoothState == BluetoothState.STATE_OFF) {
+          _isButtonUnavailable = true;
         }
         getPairedDevices();
       });
     });
   }
+
   @override
-  void dispose(){
-    if (isConnected){
+  void dispose() {
+    if (isConnected) {
       isDisconnecting = true;
       connection.dispose();
       connection = null as BluetoothConnection;
@@ -59,10 +58,10 @@ class _BluetoothRouteState  extends State<BluetoothRoute>{
     super.dispose();
   }
 
-  Future<bool> enableBluetooth() async{
+  Future<bool> enableBluetooth() async {
     _bluetoothState = await FlutterBluetoothSerial.instance.state;
 
-    if (_bluetoothState == BluetoothState.STATE_OFF){
+    if (_bluetoothState == BluetoothState.STATE_OFF) {
       await FlutterBluetoothSerial.instance.requestEnable();
       await getPairedDevices();
       return true;
@@ -72,28 +71,29 @@ class _BluetoothRouteState  extends State<BluetoothRoute>{
     return false;
   }
 
-  Future<void> getPairedDevices() async{
-    List<BluetoothDevice> devices =[];
+  Future<void> getPairedDevices() async {
+    List<BluetoothDevice> devices = [];
 
-    try{
+    try {
       devices = await _bluetooth.getBondedDevices();
-    } on PlatformException{
+    } on PlatformException {
       print("ERROR");
     }
 
-    if (!mounted){
+    if (!mounted) {
       return;
     }
 
-    setState((){
+    setState(() {
       _devicesList = devices;
     });
   }
+
   @override
-  Widget build(BuildContext context){
-    return MaterialApp(
-      home: Scaffold(
-        key: _scaffoldKey,
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Scaffold(
+         key: _scaffoldKey,
         appBar: AppBar(
           title: const Text ("Connexió Bluetooth"),
           centerTitle: true,
@@ -101,20 +101,20 @@ class _BluetoothRouteState  extends State<BluetoothRoute>{
         body: Container(
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children:<Widget>[
+            children: <Widget>[
               Visibility(
                 visible: _isButtonUnavailable &&
                     _bluetoothState == BluetoothState.STATE_ON,
                 child: LinearProgressIndicator(
                   backgroundColor: Colors.white54,
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.all(15),
-                child:Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget> [
+                  children: <Widget>[
                     Expanded(
                       child: const Text('Encendre Bluetooth',
                         style: TextStyle(
@@ -152,21 +152,22 @@ class _BluetoothRouteState  extends State<BluetoothRoute>{
                 ),
               ),
               Stack(
-                children:<Widget>[
+                children: <Widget>[
                   Column(
-                    children:<Widget>[
+                    children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: Container(
-                          color: Colors.grey,
+                          color: Colors.grey[300],
                           padding: const EdgeInsets.all(5.0),
                           child: Column(
-                            children:<Widget>[
+                            children: <Widget>[
                               Padding(
                                 padding: const EdgeInsets.all(10.0),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: <Widget> [
+                                  mainAxisAlignment: MainAxisAlignment
+                                      .spaceEvenly,
+                                  children: <Widget>[
                                     Text('Seleccionar',
                                       style: TextStyle(
                                         color: Colors.black54,
@@ -183,7 +184,7 @@ class _BluetoothRouteState  extends State<BluetoothRoute>{
                                       },
                                       value: _devicesList.isNotEmpty
                                           ? _device
-                                          :null,
+                                          : null,
                                       iconSize: 30,
                                     ),
                                   ],
@@ -200,9 +201,11 @@ class _BluetoothRouteState  extends State<BluetoothRoute>{
                                           ? null
                                           : _connected ? _disconnect : _connect,
                                       child: Text(
-                                        _connected ? 'Desconnectar' :'Connectar',
-                                        style: TextStyle (
-                                          color:Colors.white,
+                                        _connected
+                                            ? 'Desconnectar'
+                                            : 'Connectar',
+                                        style: TextStyle(
+                                          color: Colors.white,
                                           fontSize: 16,
                                         ),
                                       ),
@@ -215,8 +218,16 @@ class _BluetoothRouteState  extends State<BluetoothRoute>{
                                         ),
                                       ),
                                       onPressed: () async {
-                                        await getPairedDevices().then((_){
-                                          show('Llista de dispositius actualitzats');
+                                        await getPairedDevices().then((_) {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: new Text(
+                                                  'Llista de dispositius actualitzada'),
+                                              duration: Duration(seconds: 3),
+
+                                            ),
+                                          );
                                         });
                                       },
                                     ),
@@ -238,14 +249,14 @@ class _BluetoothRouteState  extends State<BluetoothRoute>{
     );
   }
 
-  List <DropdownMenuItem<BluetoothDevice>> _getDeviceItems(){
+  List <DropdownMenuItem<BluetoothDevice>> _getDeviceItems() {
     List<DropdownMenuItem<BluetoothDevice>> items = [];
-    if (_devicesList.isEmpty){
+    if (_devicesList.isEmpty) {
       items.add(DropdownMenuItem(
-        child: Text ('Cap'),
+        child: Text('Cap'),
       ));
     } else {
-      _devicesList.forEach((device){
+      _devicesList.forEach((device) {
         items.add(DropdownMenuItem(
           child: Text(device.address),
           value: device,
@@ -254,41 +265,55 @@ class _BluetoothRouteState  extends State<BluetoothRoute>{
     }
     return items;
   }
-  void _connect()async{
-    setState((){
+
+  void _connect() async {
+    setState(() {
       _isButtonUnavailable = true;
     });
     if (_device == null) {
-      show ('No hi ha dispositius connectats');
-    } else{
-      if (!isConnected){
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: new Text('No hi ha dispositius connectats'),
+          duration: Duration(seconds: 3),
+
+        ),
+      );
+    } else {
+      if (!isConnected) {
         await BluetoothConnection.toAddress(_device.address)
-            .then((_connection){
+            .then((_connection) {
           print('Connectat al dispositiu');
-          connection: _connection;
+          connection = _connection;
           setState(() {
             _connected = true;
           });
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: new Text('Dispositiu connectat'),
+              duration: Duration(seconds: 3),
+
+            ),
+          );
           connection.input!.listen(null).onDone(() {
             if (isDisconnecting) {
-              print ('Desconnectat localment');
+              print('Desconnectat localment');
             } else {
-              print ('Desconnectat remotament');
+              print('Desconnectat remotament');
             }
-            if (this.mounted){
+            if (this.mounted) {
               setState(() {});
             }
           });
-        }).catchError((error){
-          print ('No es pot connectar, hi ha hagut un error');
-          print (error);
+        }).catchError((error) {
+          print('No es pot connectar, hi ha hagut un error');
+          print(error);
         });
-        show ('Dispositiu connectat');
-        setState(() => _isButtonUnavailable = false);
 
+        setState(() => _isButtonUnavailable = false);
       }
     }
   }
+
   void _disconnect() async {
     setState(() {
       _isButtonUnavailable = true;
@@ -296,29 +321,18 @@ class _BluetoothRouteState  extends State<BluetoothRoute>{
       // connection.output.add(utf8.encode("0"));
     });
     await connection.close();
-    show('Dispositiu desconnectat');
-    if (!connection.isConnected){
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: new Text('Dispositiu desconnectat'),
+        duration: Duration(seconds: 3),
+
+      ),
+    );
+    if (!connection.isConnected) {
       setState(() {
         _connected = false;
         _isButtonUnavailable = false;
       });
     }
   }
-
-  Future show(
-      String message, {
-        Duration duration: const Duration (seconds: 3),
-      }) async {
-    await new Future.delayed(new Duration(milliseconds: 100));
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          message,
-        ),
-        duration: duration,
-      ),
-    );
-  }
 }
-
-
