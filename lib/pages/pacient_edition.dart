@@ -24,7 +24,7 @@ class _PacientEditionState extends State<PacientEdition> {
       appBar: AppBar(
         title: const Text('editar perfil',
           style: TextStyle(
-              fontSize: 30,
+              fontSize: 25,
           ),),
         centerTitle: true,
         backgroundColor: Colors.blueGrey [900],

@@ -103,7 +103,7 @@ class ButtonEditionPill extends StatelessWidget {
               IconButton (
                 iconSize: 35.0,
                 padding: const EdgeInsets.fromLTRB(0,0,10,0),
-                icon: const Icon(Icons.delete_forever),
+                icon: const Icon(Icons.delete),
                 onPressed: () async {
                     PacientService instance =
                     Provider.of<PacientService>(context, listen: false);

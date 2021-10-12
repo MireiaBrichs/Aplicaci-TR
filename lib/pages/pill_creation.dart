@@ -31,7 +31,7 @@ class _SecondRoute extends State<PillCreation> {
         title: Text(
           text,
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 25,
           ),
         ),
         centerTitle: true,
@@ -80,9 +80,7 @@ class TextFieldsState extends State<TextFields> {
             padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
             child: TextFormField(
               controller: namePillController,
-              // onChanged: (String value) async {
-              //   title = value;
-              // },
+
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Omple aquest camp';

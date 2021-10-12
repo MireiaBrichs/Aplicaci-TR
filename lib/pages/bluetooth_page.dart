@@ -95,8 +95,13 @@ class _BluetoothRouteState  extends State<BluetoothRoute> {
       body: Scaffold(
          key: _scaffoldKey,
         appBar: AppBar(
-          title: const Text ("Connexió Bluetooth"),
+          title: Text('connexió bluetooth',
+            style: TextStyle(
+              fontSize: 25,
+            ),
+          ),
           centerTitle: true,
+          backgroundColor: Colors.blueGrey[900],
         ),
         body: Container(
           child: Column(
@@ -118,7 +123,7 @@ class _BluetoothRouteState  extends State<BluetoothRoute> {
                     Expanded(
                       child: const Text('Encendre Bluetooth',
                         style: TextStyle(
-                          color: Colors.black54,
+                          color: Colors.black,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
@@ -170,7 +175,7 @@ class _BluetoothRouteState  extends State<BluetoothRoute> {
                                   children: <Widget>[
                                     Text('Seleccionar',
                                       style: TextStyle(
-                                        color: Colors.black54,
+                                        color: Colors.black,
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                       ),
