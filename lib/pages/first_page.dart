@@ -1,4 +1,6 @@
-import 'package:MedsRemainder/pages/pillCreation.dart';
+import 'dart:convert';
+
+import 'package:MedsRemainder/pages/pill_creation.dart';
 import 'package:MedsRemainder/services/pacient_service.dart';
 import 'package:MedsRemainder/widgets/button_edition_pill.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +39,7 @@ class _FirstRouteState extends State<FirstRoute> {
                 default:
                   if (snapshot.hasError)
                     return Text('Error: ${snapshot.error}');
-                  else
+                  else {
                     return Consumer<PacientService>(
                         builder: (context, pacientService, child) {
                           return Column(
@@ -200,6 +202,7 @@ class _FirstRouteState extends State<FirstRoute> {
                             ],
                           );
                         });
+                  }
               }
             })
     );
@@ -207,10 +210,18 @@ class _FirstRouteState extends State<FirstRoute> {
 
   Widget _EditionButtonBuilder(BuildContext context, int index) {
     var colorsButton = [Colors.lightBlue[200],Colors.green[700],Colors.yellow[700],Colors.deepOrange[400],Colors.pink[300],Colors.blue[900]];
+    PacientService instance = Provider.of<PacientService>(context,
+        listen: false);
 
+    Map<String,dynamic> pill = jsonDecode(instance.pills![index]);
 
+    DateTime pickDate = DateTime.parse(pill['firstTake']);
+    print(pickDate.day);
 
     return ButtonEditionPill(
+      name: pill['name'],
+      number: pill['number'],
+
       colorButton: colorsButton[index],
       index: index,
 

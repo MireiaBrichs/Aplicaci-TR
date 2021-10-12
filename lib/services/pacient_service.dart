@@ -49,9 +49,48 @@ class PacientService with ChangeNotifier{
 
 
   }
+  Future<void> editInfoPacient (String name, String age) async{
 
-  afegirMedicament(){
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString("pacient",jsonEncode(
+        {
+          "name": name,
+          "age": age,
+        }
+    ));
 
+    print("Saving info edition Pacient");
+    pacient = Pacient(name,age);
+
+    notifyListeners();
+    return;
+
+  }
+
+  Future<void> afegirMedicament (String name, String number, String hours, String days, DateTime firstTake) async {
+
+
+   SharedPreferences prefs = await SharedPreferences.getInstance();
+   List<String>? pillsString =prefs.getStringList("pills");
+
+   pillsString!.add(jsonEncode({
+
+     "name": name,
+     "number": number,
+     "hours": hours,
+     "days": days,
+     "firstTake": firstTake.toString(),
+
+   }));
+
+   pills = pillsString;
+
+    await prefs.setStringList("pills",pillsString);
+
+    print("New Pill added");
+
+    notifyListeners();
+    return;
 
   }
 

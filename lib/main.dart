@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:MedsRemainder/pages/firstPage.dart';
-import 'package:MedsRemainder/pages/pacientEdition.dart';
-import 'package:MedsRemainder/pages/pillCreation.dart';
+import 'package:MedsRemainder/pages/first_page.dart';
+import 'package:MedsRemainder/pages/pacient_edition.dart';
+import 'package:MedsRemainder/pages/pill_creation.dart';
 import 'package:MedsRemainder/services/pacient_service.dart';
 import 'package:MedsRemainder/widgets/button_edition_pill.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +11,7 @@ import 'package:localstorage/localstorage.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'models/pacient.dart';
-import 'pages/bluetoothpage.dart';
+import 'pages/bluetooth_page.dart';
 
 
 ///MAIN inicial de la aplicació

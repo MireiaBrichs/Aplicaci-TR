@@ -1,5 +1,7 @@
 
+import 'package:MedsRemainder/services/pacient_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 
 class PacientEdition extends StatefulWidget {
@@ -10,6 +12,12 @@ class PacientEdition extends StatefulWidget {
 }
 
 class _PacientEditionState extends State<PacientEdition> {
+
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +45,9 @@ class TextFieldsPacient extends StatefulWidget {
 class TextFieldsPacientState extends State<TextFieldsPacient> {
   final _formKey = GlobalKey<FormState>();
 
+  final namePacientController = TextEditingController();
+  final agePacientController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -55,7 +66,7 @@ class TextFieldsPacientState extends State<TextFieldsPacient> {
             Container(
               padding: const EdgeInsets.fromLTRB(10,10,10,0),
               child: TextFormField(
-                //controller: namePillController,
+                controller: namePacientController,
                 // onChanged: (String value) async {
                 //   title = value;
                 // },
@@ -83,7 +94,7 @@ class TextFieldsPacientState extends State<TextFieldsPacient> {
             Container(
               padding: const EdgeInsets.fromLTRB(10,10,10,0),
               child: TextFormField(
-                //controller: namePillController,
+                controller: agePacientController,
                 // onChanged: (String value) async {
                 //   title = value;
                 // },
@@ -103,11 +114,17 @@ class TextFieldsPacientState extends State<TextFieldsPacient> {
               padding: const EdgeInsets.fromLTRB(10,30,10,0),
               height: 90,
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
 
                   //TODO: Arreglar aixo per afegri les coses amb inputs
 
                   if (_formKey.currentState!.validate()) {
+
+                    PacientService instance = Provider.of<PacientService>(context,
+                        listen: false);
+
+                    await instance.editInfoPacient(namePacientController.text, agePacientController.text);
+
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Guardant la informació')),
                     );
