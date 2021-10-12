@@ -218,6 +218,10 @@ class _FirstRouteState extends State<FirstRoute> {
     DateTime pickDate = DateTime.parse(pill['firstTake']);
     print(pickDate.day);
 
+    DateTime finalDate = pickDate.add(Duration(days: int.parse(pill['days'])));
+    Duration daysToEnd = finalDate.difference(DateTime.now());
+
+
     return ButtonEditionPill(
       name: pill['name'],
       number: pill['number'],

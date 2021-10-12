@@ -11,6 +11,12 @@ class ButtonEditionPill extends StatelessWidget {
 
   const ButtonEditionPill( {required this.colorButton, required this.index , required this.name, required this.number, Key? key}) : super(key: key);
 
+
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Padding(
