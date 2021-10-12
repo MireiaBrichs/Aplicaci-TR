@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:MedsRemainder/pages/pill_creation.dart';
 import 'package:MedsRemainder/services/pacient_service.dart';
 import 'package:MedsRemainder/widgets/button_edition_pill.dart';
 import 'package:flutter/material.dart';
@@ -152,7 +150,7 @@ class _FirstRouteState extends State<FirstRoute> {
                                 children: [
                                   Expanded(
                                     child: Container(
-                                      padding: const EdgeInsets.fromLTRB(10,10,0,0),
+                                      padding: const EdgeInsets.fromLTRB(10,10,0,10),
                                       child: const Text(
                                         'Medicaments Registrats:',
                                         style: TextStyle(
@@ -165,13 +163,13 @@ class _FirstRouteState extends State<FirstRoute> {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                    padding: const EdgeInsets.fromLTRB(0,10,10,0),
+                                    padding: const EdgeInsets.fromLTRB(0,10,10,10),
                                     child: ElevatedButton(
                                         onPressed: () {
                                           //Funció per afegir pastilla
-                                          Navigator.pushNamed(
-                                            context, 'pillCreation'
-                                          );
+                                            Navigator.pushNamed(
+                                                context, 'pillCreation'
+                                            );
                                         },
                                         style: ElevatedButton.styleFrom(
                                           primary: Colors.blueAccent [200],
@@ -209,7 +207,7 @@ class _FirstRouteState extends State<FirstRoute> {
   }
 
   Widget _EditionButtonBuilder(BuildContext context, int index) {
-    var colorsButton = [Colors.lightBlue[200],Colors.green[700],Colors.yellow[700],Colors.deepOrange[400],Colors.pink[300],Colors.blue[900]];
+    var colorsButton = [Colors.lightBlue[400],Colors.green[700],Colors.yellow[700],Colors.deepOrange[400],Colors.pink[300],Colors.blue[900]];
     PacientService instance = Provider.of<PacientService>(context,
         listen: false);
 
@@ -225,6 +223,7 @@ class _FirstRouteState extends State<FirstRoute> {
     return ButtonEditionPill(
       name: pill['name'],
       number: pill['number'],
+      days: pill['days'],
 
       colorButton: colorsButton[index],
       index: index,

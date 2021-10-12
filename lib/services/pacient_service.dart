@@ -32,7 +32,7 @@ class PacientService with ChangeNotifier{
 
     }else{
       print("Pacient not created, creating new User on our mobile phone...");
-      pacient = Pacient("Pacient Nou","17");
+      pacient = Pacient("Pacient Nou"," ");
 
       prefs.setString("pacient", jsonEncode(
           {
@@ -105,7 +105,7 @@ class PacientService with ChangeNotifier{
 
     await prefs.setStringList("pills",pillsString);
 
-    print("New Pill deleted");
+    print("Pill deleted");
 
     notifyListeners();
     return;

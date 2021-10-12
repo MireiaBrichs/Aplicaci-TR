@@ -20,10 +20,6 @@ class _SecondRoute extends State<PillCreation> {
   late String title;
   String text = "medicament 1";
 
-  final namePillController = TextEditingController();
-
-  // NombrePastilles? _character = NombrePastilles.una;
-
   @override
   Widget build(BuildContext context) {
     final LocalStorage storage = LocalStorage('APPTR');
@@ -95,7 +91,6 @@ class TextFieldsState extends State<TextFields> {
               },
 
               decoration: const InputDecoration(
-                hintText: "Hola mireia",
                 border: OutlineInputBorder(),
               ),
             ),
@@ -186,7 +181,7 @@ class TextFieldsState extends State<TextFields> {
                 DatePicker.showDateTimePicker(context, showTitleActions: true,
                     onConfirm: (date) {
                   pickDate = date;
-                }, currentTime: DateTime(2021, 9, 1, 00, 00));
+                }, currentTime: DateTime(2021, 10, 12, 00, 00));
               },
               child: const Align(
                 alignment: Alignment.centerLeft,
@@ -208,10 +203,6 @@ class TextFieldsState extends State<TextFields> {
             height: 90,
             child: ElevatedButton(
               onPressed: () async {
-                //TODO: Arreglar aixo per afegri les coses amb inputs
-
-                //TODO: Pill pastilleta = Pill(namePillController.text,"2","8","60",DateTime.now());
-
                 if (_formKey.currentState!.validate()) {
                   PacientService instance =
                       Provider.of<PacientService>(context, listen: false);
