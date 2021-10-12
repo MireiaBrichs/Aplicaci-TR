@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:app_tr/models/pacient.dart';
+import 'package:MedsRemainder/models/pacient.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

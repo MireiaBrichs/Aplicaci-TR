@@ -115,7 +115,7 @@ class TextFieldsPacientState extends State<TextFieldsPacient> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.lightBlue[400],
+                  primary: Colors.blueAccent [200],
                 ),
                 child: const Text('Acceptar'),
               ),

@@ -1,6 +1,6 @@
-import 'package:app_tr/pages/pillCreation.dart';
-import 'package:app_tr/services/pacient_service.dart';
-import 'package:app_tr/widgets/button_edition_pill.dart';
+import 'package:MedsRemainder/pages/pillCreation.dart';
+import 'package:MedsRemainder/services/pacient_service.dart';
+import 'package:MedsRemainder/widgets/button_edition_pill.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,9 +20,9 @@ class _FirstRouteState extends State<FirstRoute> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const Text('ENPASTILLAT',
+          title: const Text('meds remainder',
             style: TextStyle(
-                fontSize: 35,
+                fontSize: 30,
                 fontWeight: FontWeight.bold
             ),),
           centerTitle: true,
@@ -90,17 +90,22 @@ class _FirstRouteState extends State<FirstRoute> {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: const EdgeInsets.fromLTRB(5,10,10,0),
+                                      padding: const EdgeInsets.fromLTRB(0,10,10,0),
                                       child: ElevatedButton(
                                           onPressed: () {
                                             //Funció per editar les dades del pacient
                                             Navigator.pushNamed(
                                                 context, 'pacientEdition');
                                           },
+                                          style: ElevatedButton.styleFrom(
+                                            primary: Colors.blueAccent [200],
+                                          ),
                                           child: const Text("Editar",
                                             style: TextStyle(
                                               fontSize: 20,
-                                            ),)
+                                              //color: Colors.black
+                                            ),
+                                          ),
                                       ),
                                     ),
                                   ),
@@ -110,23 +115,26 @@ class _FirstRouteState extends State<FirstRoute> {
 
 
                               Padding(
-                                padding: const EdgeInsets.fromLTRB(10,10,0,0),
+                                padding: const EdgeInsets.fromLTRB(10,0,0,10),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment
-                                      .spaceEvenly,
+                                  //mainAxisAlignment: MainAxisAlignment
+                                     // .spaceEvenly,
                                   children: [
                                     Text(pacientService.pacient == null
                                         ? ""
                                         : pacientService.pacient!.name!,
                                       style: TextStyle(
-                                        fontSize: 25,
-                                        color: Colors.blue[800],
+                                        fontSize: 17,
+                                        color: Colors.grey[800],
                                       ),),
+                                    Container(
+                                      width: 16,
+                                    ),
                                     Text(pacientService.pacient!.age!,
                                       style: TextStyle(
-                                        fontSize: 25,
-                                        color: Colors.blue[800],
-                                      ),)
+                                        fontSize: 17,
+                                        color: Colors.grey[800],
+                                      ),),
                                   ],
                                 ),
                               ),
@@ -144,7 +152,7 @@ class _FirstRouteState extends State<FirstRoute> {
                                     child: Container(
                                       padding: const EdgeInsets.fromLTRB(10,10,0,0),
                                       child: const Text(
-                                        'Medicaments registrats:',
+                                        'Medicaments Registrats:',
                                         style: TextStyle(
                                           fontSize: 20,
                                           color: Colors.black,
@@ -153,8 +161,9 @@ class _FirstRouteState extends State<FirstRoute> {
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(5,10,10,0),
+                                  Expanded(
+                                    child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(0,10,10,0),
                                     child: ElevatedButton(
                                         onPressed: () {
                                           //Funció per afegir pastilla
@@ -162,25 +171,28 @@ class _FirstRouteState extends State<FirstRoute> {
                                             context, 'pillCreation'
                                           );
                                         },
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.blueAccent [200],
+                                        ),
                                         child: const Text("Afegir Pastilla",
                                           style: TextStyle(
                                             fontSize: 20.0,
                                           ),)
                                     ),
+                                    ),
                                   ),
                                 ],
                               ),
-                              const Divider(
-                                thickness: 5,
-                                indent: 10,
-                                endIndent: 10,
-                                color: Color(0x5D000000),
-                              ),
+                              // const Divider(
+                              //   thickness: 5,
+                              //   indent: 10,
+                              //   endIndent: 10,
+                              //   color: Color(0x5D000000),
+                              // ),
                               Expanded(
                                 child: ListView.builder(
                                   itemCount: pacientService.pills!.length,
                                   itemBuilder: _EditionButtonBuilder,
-
                                 ),
                               ),
 

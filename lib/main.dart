@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:app_tr/pages/firstPage.dart';
-import 'package:app_tr/pages/pacientEdition.dart';
-import 'package:app_tr/pages/pillCreation.dart';
-import 'package:app_tr/services/pacient_service.dart';
-import 'package:app_tr/widgets/button_edition_pill.dart';
+import 'package:MedsRemainder/pages/firstPage.dart';
+import 'package:MedsRemainder/pages/pacientEdition.dart';
+import 'package:MedsRemainder/pages/pillCreation.dart';
+import 'package:MedsRemainder/services/pacient_service.dart';
+import 'package:MedsRemainder/widgets/button_edition_pill.dart';
 import 'package:flutter/material.dart';
 import 'package:localstorage/localstorage.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +30,7 @@ void main() async {
           ),
         ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         //Establim les rutes que volem fer
         initialRoute: 'home',
         routes:{

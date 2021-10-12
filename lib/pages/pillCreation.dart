@@ -1,7 +1,8 @@
-import 'package:app_tr/models/pacient.dart';
+import 'package:MedsRemainder/models/pacient.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:localstorage/localstorage.dart';
+import 'dart:ui';
 
 
 
@@ -203,7 +204,7 @@ class TextFieldsState extends State<TextFields> {
 
                 //TODO: Arreglar aixo per afegri les coses amb inputs
 
-                // Pill pastilleta = Pill(namePillController.text,"2","8","60",DateTime.now());
+                //TODO: Pill pastilleta = Pill(namePillController.text,"2","8","60",DateTime.now());
 
 
                 if (_formKey.currentState!.validate()) {
@@ -214,7 +215,7 @@ class TextFieldsState extends State<TextFields> {
                 }
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.lightBlue[400],
+                primary: Colors.blueAccent [200],
               ),
               child: const Text('Acceptar'),
             ),
@@ -234,7 +235,7 @@ class CustomPicker extends CommonPickerModel {
 
   CustomPicker({DateTime? currentTime, LocaleType? locale})
       : super(locale: locale) {
-    this.currentTime = currentTime ?? DateTime.now();
+    this.currentTime = currentTime!; DateTime.now();
     this.setLeftIndex(this.currentTime.hour);
     this.setMiddleIndex(this.currentTime.minute);
   }

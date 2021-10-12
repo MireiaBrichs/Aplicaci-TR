@@ -1,4 +1,4 @@
-import 'package:app_tr/pages/pillCreation.dart';
+import 'package:MedsRemainder/pages/pillCreation.dart';
 import 'package:flutter/material.dart';
 
 
