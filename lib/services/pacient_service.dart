@@ -83,6 +83,7 @@ class PacientService with ChangeNotifier{
 
    }));
 
+
    pills = pillsString;
 
     await prefs.setStringList("pills",pillsString);
@@ -94,7 +95,20 @@ class PacientService with ChangeNotifier{
 
   }
 
-  eliminarMedicament(){
+  Future<void> eliminarMedicament(int index) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String>? pillsString =prefs.getStringList("pills");
+
+    pillsString!.removeAt(index);
+
+    pills = pillsString;
+
+    await prefs.setStringList("pills",pillsString);
+
+    print("New Pill deleted");
+
+    notifyListeners();
+    return;
 
 
   }

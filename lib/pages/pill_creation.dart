@@ -93,7 +93,9 @@ class TextFieldsState extends State<TextFields> {
                 }
                 return null;
               },
+
               decoration: const InputDecoration(
+                hintText: "Hola mireia",
                 border: OutlineInputBorder(),
               ),
             ),
